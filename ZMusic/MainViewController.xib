@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A313a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="ZMusic" customModuleProvider="target">
+            <connections>
+                <outlet property="bgImageView" destination="XMF-TN-dZi" id="vnK-Cf-OC2"/>
+                <outlet property="contentView" destination="Xcd-An-DkQ" id="5Hq-sk-mcj"/>
+                <outlet property="downBtn" destination="6TK-0U-fx1" id="4V5-GC-k09"/>
+                <outlet property="likeBtn" destination="935-8I-WRD" id="f4U-o1-Qs7"/>
+                <outlet property="lineView" destination="Qgu-oV-o8d" id="GIB-7C-knM"/>
+                <outlet property="listenGroupBtn" destination="hJe-zR-MwU" id="0ax-yh-hPl"/>
+                <outlet property="listenLibrayBtn" destination="T2a-5z-oPN" id="fwW-gr-TNb"/>
+                <outlet property="listenRadioBtn" destination="FSO-Zy-iKb" id="Vyi-EP-sJJ"/>
+                <outlet property="musicListBtn" destination="qMd-NG-wzb" id="7gE-h5-yvd"/>
+                <outlet property="recentBtn" destination="K2C-Vl-8vU" id="1R6-lj-hsc"/>
+                <outlet property="view" destination="iN0-l3-epB" id="rY0-nq-yNi"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_listen_bg_one" translatesAutoresizingMaskIntoConstraints="NO" id="XMF-TN-dZi">
+                    <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                </imageView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pOQ-Pr-1Gc">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HeE-OI-umb">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="668"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.17999999999999999" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="不变的只有音乐" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2WC-Tc-s33">
+                                    <rect key="frame" x="127" y="8" width="121.5" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="SUT-Vj-IsY">
+                                    <rect key="frame" x="0.0" y="84" width="375" height="100"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="935-8I-WRD" userLabel="like">
+                                            <rect key="frame" x="0.0" y="0.0" width="82.5" height="100"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <state key="normal" title="我喜欢" image="listen_like"/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qMd-NG-wzb" userLabel="musicList">
+                                            <rect key="frame" x="97.5" y="0.0" width="82.5" height="100"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <state key="normal" title="歌单" image="listen_recent_play"/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6TK-0U-fx1" userLabel="download">
+                                            <rect key="frame" x="195" y="0.0" width="82.5" height="100"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <state key="normal" title="下载" image="listen_download"/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K2C-Vl-8vU" userLabel="recent">
+                                            <rect key="frame" x="292.5" y="0.0" width="82.5" height="100"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <state key="normal" title="附近" image="listen_recent_play"/>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="K2C-Vl-8vU" firstAttribute="height" secondItem="935-8I-WRD" secondAttribute="height" id="2Ra-0m-00j"/>
+                                        <constraint firstItem="6TK-0U-fx1" firstAttribute="height" secondItem="935-8I-WRD" secondAttribute="height" id="8BX-jM-wQg"/>
+                                        <constraint firstAttribute="height" constant="100" id="GDW-Dy-02P"/>
+                                        <constraint firstItem="qMd-NG-wzb" firstAttribute="height" secondItem="935-8I-WRD" secondAttribute="height" id="taj-Ia-kjE"/>
+                                        <constraint firstItem="935-8I-WRD" firstAttribute="height" secondItem="SUT-Vj-IsY" secondAttribute="height" id="teu-mj-agw"/>
+                                    </constraints>
+                                </stackView>
+                                <view alpha="0.14999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qgu-oV-o8d" userLabel="lineView">
+                                    <rect key="frame" x="0.0" y="203" width="375" height="1"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="1" id="WwH-pM-utf"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9mk-Ui-whI" userLabel="localMusicView">
+                                    <rect key="frame" x="0.0" y="223" width="375" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="fuS-Lo-GBf"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xcd-An-DkQ" userLabel="contentView">
+                                    <rect key="frame" x="0.0" y="273" width="375" height="1000"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="MTt-5N-xDj">
+                                            <rect key="frame" x="0.0" y="20" width="375" height="100"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T2a-5z-oPN">
+                                                    <rect key="frame" x="0.0" y="0.0" width="125" height="100"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                                    <inset key="titleEdgeInsets" minX="-48" minY="0.0" maxX="0.0" maxY="-63"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="-25" maxX="-41" maxY="0.0"/>
+                                                    <state key="normal" title="乐库" image="listen_group">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FSO-Zy-iKb">
+                                                    <rect key="frame" x="125" y="0.0" width="125" height="100"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <inset key="titleEdgeInsets" minX="6" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <state key="normal" title="电台" image="listen_group">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJe-zR-MwU">
+                                                    <rect key="frame" x="250" y="0.0" width="125" height="100"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <state key="normal" title="酷群" image="listen_group">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="T2a-5z-oPN" firstAttribute="height" secondItem="MTt-5N-xDj" secondAttribute="height" id="GKw-jE-izT"/>
+                                                <constraint firstItem="hJe-zR-MwU" firstAttribute="height" secondItem="T2a-5z-oPN" secondAttribute="height" id="Hjl-vB-PAl"/>
+                                                <constraint firstAttribute="height" constant="100" id="ORg-0X-JrP"/>
+                                                <constraint firstItem="FSO-Zy-iKb" firstAttribute="height" secondItem="T2a-5z-oPN" secondAttribute="height" id="qha-GU-krP"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="1000" id="0ta-MZ-2PN"/>
+                                        <constraint firstAttribute="trailing" secondItem="MTt-5N-xDj" secondAttribute="trailing" id="GMn-iR-gc7"/>
+                                        <constraint firstItem="MTt-5N-xDj" firstAttribute="top" secondItem="Xcd-An-DkQ" secondAttribute="top" constant="20" id="d0e-Qn-SSW"/>
+                                        <constraint firstItem="MTt-5N-xDj" firstAttribute="leading" secondItem="Xcd-An-DkQ" secondAttribute="leading" id="mGb-xR-rOk"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="Xcd-An-DkQ" secondAttribute="trailing" id="7f2-wY-aLF"/>
+                                <constraint firstItem="Qgu-oV-o8d" firstAttribute="leading" secondItem="HeE-OI-umb" secondAttribute="leading" id="AbF-eV-xeE"/>
+                                <constraint firstItem="Xcd-An-DkQ" firstAttribute="leading" secondItem="HeE-OI-umb" secondAttribute="leading" id="Fkf-sY-0dU"/>
+                                <constraint firstItem="9mk-Ui-whI" firstAttribute="top" secondItem="Qgu-oV-o8d" secondAttribute="top" constant="20" id="I2L-6f-IuJ"/>
+                                <constraint firstAttribute="trailing" secondItem="Qgu-oV-o8d" secondAttribute="trailing" id="Nsn-7U-0fz"/>
+                                <constraint firstItem="2WC-Tc-s33" firstAttribute="top" secondItem="HeE-OI-umb" secondAttribute="topMargin" id="PGT-wi-RSv"/>
+                                <constraint firstItem="9mk-Ui-whI" firstAttribute="leading" secondItem="HeE-OI-umb" secondAttribute="leading" id="PMH-3h-BjG"/>
+                                <constraint firstAttribute="trailing" secondItem="SUT-Vj-IsY" secondAttribute="trailing" id="PWo-2p-rZQ"/>
+                                <constraint firstItem="2WC-Tc-s33" firstAttribute="centerX" secondItem="HeE-OI-umb" secondAttribute="centerX" id="Q02-mW-55m"/>
+                                <constraint firstItem="Xcd-An-DkQ" firstAttribute="top" secondItem="9mk-Ui-whI" secondAttribute="bottom" id="X4q-iS-qLg"/>
+                                <constraint firstItem="SUT-Vj-IsY" firstAttribute="leading" secondItem="HeE-OI-umb" secondAttribute="leading" id="XOj-80-9SJ"/>
+                                <constraint firstItem="SUT-Vj-IsY" firstAttribute="top" secondItem="HeE-OI-umb" secondAttribute="top" constant="84" id="nrJ-dl-coW"/>
+                                <constraint firstAttribute="trailing" secondItem="9mk-Ui-whI" secondAttribute="trailing" id="sS1-lu-9Tb"/>
+                                <constraint firstItem="Qgu-oV-o8d" firstAttribute="bottom" secondItem="SUT-Vj-IsY" secondAttribute="bottom" constant="20" id="zSe-9L-nQI"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="HeE-OI-umb" firstAttribute="leading" secondItem="pOQ-Pr-1Gc" secondAttribute="leading" id="1ww-8R-aeB"/>
+                        <constraint firstItem="HeE-OI-umb" firstAttribute="width" secondItem="pOQ-Pr-1Gc" secondAttribute="width" id="BHa-Nk-vVM"/>
+                        <constraint firstItem="HeE-OI-umb" firstAttribute="height" secondItem="pOQ-Pr-1Gc" secondAttribute="height" constant="1" id="F4R-nW-9k7"/>
+                        <constraint firstItem="HeE-OI-umb" firstAttribute="top" secondItem="pOQ-Pr-1Gc" secondAttribute="top" id="bOb-Ld-qzd"/>
+                        <constraint firstAttribute="bottom" secondItem="HeE-OI-umb" secondAttribute="bottom" id="cLB-ov-Kbg"/>
+                        <constraint firstAttribute="trailing" secondItem="HeE-OI-umb" secondAttribute="trailing" id="nj4-NL-sGD"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="pOQ-Pr-1Gc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="4DO-JP-P6u"/>
+                <constraint firstAttribute="bottom" secondItem="pOQ-Pr-1Gc" secondAttribute="bottom" id="6WK-Uc-j6W"/>
+                <constraint firstAttribute="trailing" secondItem="XMF-TN-dZi" secondAttribute="trailing" id="Gfx-3X-odQ"/>
+                <constraint firstItem="pOQ-Pr-1Gc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="P27-sn-Tz7"/>
+                <constraint firstAttribute="trailing" secondItem="pOQ-Pr-1Gc" secondAttribute="trailing" id="lRa-Ae-5mM"/>
+                <constraint firstAttribute="bottom" secondItem="XMF-TN-dZi" secondAttribute="bottom" id="npa-5S-6lJ"/>
+                <constraint firstItem="XMF-TN-dZi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="64" id="ozw-XS-Xet"/>
+                <constraint firstItem="XMF-TN-dZi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="qRI-h7-1B1"/>
+            </constraints>
+            <point key="canvasLocation" x="25.5" y="51.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="home_listen_bg_one" width="360" height="576"/>
+        <image name="listen_download" width="50" height="50"/>
+        <image name="listen_group" width="58" height="58"/>
+        <image name="listen_like" width="50" height="50"/>
+        <image name="listen_recent_play" width="50" height="50"/>
+    </resources>
+</document>
