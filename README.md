@@ -1,9 +1,11 @@
-# 仿酷狗UI效果
+# 仿酷狗UI效果和换肤功能
 使用Swift3.0开发
-响应式框架:
-    RxSwift，RxCocoa，RxDataSources
-网络: 
-    Moya+RxSwift+Argo
+响应式框架:</br>
+RxSwift，RxCocoa，RxDataSources </br>
+网络: </br>
+Moya+RxSwift+Argo </br>
+
+### Demo中使用的皮肤包是通过抓包获取的链接 ^.^
 
 ## 运行环境
 - [Cocoapods](https://github.com/CocoaPods/CocoaPods) 1.0.1
@@ -22,19 +24,22 @@
 - 皮肤预览效果。
 
 ## 效果图
-左右抽屉效果：
-![Demo Gif](images/drawer.gif)
-播放页左右滑动旋转退出效果：
-![Demo Gif](images/playView.gif)
-皮肤包管理效果：
-![Demo Gif](images/themeManager.gif)
-换肤效果：
-![Demo Gif](images/changeTheme.gif)
-皮肤预览效果：
-![Demo Gif](images/scrollerView.gif)
+左右抽屉效果：</br>
+![Demo Gif](images/drawer.gif)  </br>
+播放页左右滑动旋转退出效果：</br>
+![Demo Gif](images/playView.gif)</br>
+皮肤包管理效果：</br>
+![Demo Gif](images/themeManager.gif)</br>
+换肤效果：</br>
+![Demo Gif](images/changeTheme.gif)</br>
+皮肤预览效果：</br>
+![Demo Gif](images/scrollerView.gif)</br>
 ## 第三方库
 - [点击这里可以查看到 Podfile](https://github.com/lyxia/zmusic/blob/master/Podfile)
-
+  
+  
+</br>
+ps: </br>
 本人目前找工作，坐标广州，求推荐（liuyunxia8#gmail.com）
 
 
