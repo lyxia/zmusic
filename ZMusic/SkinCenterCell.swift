@@ -30,6 +30,10 @@ class SkinCenterCell: UICollectionViewCell {
         super.didMoveToWindow()
         
         layoutIfNeeded()
+        
+        if !hasAddShadow && imageView.image != nil {
+            addShadow()
+        }
     }
     
     override func prepareForReuse() {
@@ -42,7 +46,7 @@ class SkinCenterCell: UICollectionViewCell {
         imageView.removeObserver(self, forKeyPath: "image")
     }
     
-    var layoutCount = 0
+   /* var layoutCount = 0
     override func layoutSubviews() {
         if !hasAddShadow {
             layoutCount += 1
@@ -51,14 +55,14 @@ class SkinCenterCell: UICollectionViewCell {
             }
         }
         super.layoutSubviews()
-    }
+    }*/
 
+    private var themeInfo: ThemeInfo?
     func setInfo(_ info:ThemeInfo) {
         themeInfo = info
         configUI()
     }
     
-    private var themeInfo: ThemeInfo?
     private var disposebag: DisposeBag?
     func configUI() {
         if let themeInfo = themeInfo {
@@ -66,15 +70,9 @@ class SkinCenterCell: UICollectionViewCell {
             imageView.tm_thumb_setImage(with: URL(string:themeInfo.thumb), placeholderImage: nil)
             
             disposebag = DisposeBag()
-            ThemeManager.shareInstance.isCurrentTheme(withId: themeInfo.themeid).subscribe { [weak weakSelf = self](event) in
-                switch event {
-                case .next(let isCurrentTheme):
-                    weakSelf?.curUsingFlag.isHidden = !isCurrentTheme
-                    break
-                default:
-                    break
-                }
-                }.addDisposableTo(disposebag!)
+            ThemeManager.shareInstance.isCurrentTheme(withId: themeInfo.themeid).subscribe(onNext: {[weak weakSelf = self] isCurrentTheme in
+                weakSelf?.curUsingFlag.isHidden = !isCurrentTheme
+            }).addDisposableTo(disposebag!)
             
             if let delete = delete {
                 deleteButton.isHidden = false

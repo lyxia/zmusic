@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:ZMusic/ZMusicPlayground.playground">
+      location = "group:ZMusicAudioCoreFrame/ZMusicAudioCoreFrame.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:ZMusicUtils/ZMusicUtils.xcodeproj">
