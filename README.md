@@ -34,7 +34,10 @@ Moya+RxSwift+Argo </br>
 ![Demo Gif](images/scrollerView.gif)</br>
 ## 第三方库
 - [点击这里可以查看到 Podfile](https://github.com/lyxia/zmusic/blob/master/Podfile)
+  
+  
 </br>
+ps: </br>
 本人目前找工作，坐标广州，求推荐（liuyunxia8#gmail.com）
 
 
