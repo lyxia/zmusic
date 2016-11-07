@@ -1,9 +1,11 @@
-# 仿酷狗UI效果
+# 仿酷狗UI效果和换肤功能
 使用Swift3.0开发
 响应式框架:</br>
 RxSwift，RxCocoa，RxDataSources </br>
 网络: </br>
 Moya+RxSwift+Argo </br>
+
+### Demo中使用的皮肤包是通过抓包获取的链接 ^.^
 
 ## 运行环境
 - [Cocoapods](https://github.com/CocoaPods/CocoaPods) 1.0.1
