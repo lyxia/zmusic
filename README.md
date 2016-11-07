@@ -1,9 +1,9 @@
 # 仿酷狗UI效果
 使用Swift3.0开发
 响应式框架:</br>
-    RxSwift，RxCocoa，RxDataSources
+RxSwift，RxCocoa，RxDataSources </br>
 网络: </br>
-    Moya+RxSwift+Argo
+Moya+RxSwift+Argo </br>
 
 ## 运行环境
 - [Cocoapods](https://github.com/CocoaPods/CocoaPods) 1.0.1
@@ -22,15 +22,15 @@
 - 皮肤预览效果。
 
 ## 效果图
-左右抽屉效果：
+左右抽屉效果：</br>
 ![Demo Gif](images/drawer.gif)  </br>
-播放页左右滑动旋转退出效果：
+播放页左右滑动旋转退出效果：</br>
 ![Demo Gif](images/playView.gif)</br>
-皮肤包管理效果：
+皮肤包管理效果：</br>
 ![Demo Gif](images/themeManager.gif)</br>
-换肤效果：
+换肤效果：</br>
 ![Demo Gif](images/changeTheme.gif)</br>
-皮肤预览效果：
+皮肤预览效果：</br>
 ![Demo Gif](images/scrollerView.gif)</br>
 ## 第三方库
 - [点击这里可以查看到 Podfile](https://github.com/lyxia/zmusic/blob/master/Podfile)
