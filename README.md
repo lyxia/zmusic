@@ -25,13 +25,13 @@
 左右抽屉效果：
 ![Demo Gif](images/drawer.gif)
 播放页左右滑动旋转退出效果：
-![Demo Gif](Images/playView.gif)
+![Demo Gif](images/playView.gif)
 皮肤包管理效果：
-![Demo Gif](Images/themeManager.gif)
+![Demo Gif](images/themeManager.gif)
 换肤效果：
-![Demo Gif](Images/changeTheme.gif)
+![Demo Gif](images/changeTheme.gif)
 皮肤预览效果：
-![Demo Gif](Images/scrollerView.gif)
+![Demo Gif](images/scrollerView.gif)
 ## 第三方库
 - [点击这里可以查看到 Podfile](https://github.com/lyxia/zmusic/blob/master/Podfile)
 
