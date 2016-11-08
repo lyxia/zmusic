@@ -45,17 +45,6 @@ class SkinCenterCell: UICollectionViewCell {
     deinit {
         imageView.removeObserver(self, forKeyPath: "image")
     }
-    
-   /* var layoutCount = 0
-    override func layoutSubviews() {
-        if !hasAddShadow {
-            layoutCount += 1
-            if layoutCount >= 2 && imageView.image != nil {
-                addShadow()
-            }
-        }
-        super.layoutSubviews()
-    }*/
 
     private var themeInfo: ThemeInfo?
     func setInfo(_ info:ThemeInfo) {
