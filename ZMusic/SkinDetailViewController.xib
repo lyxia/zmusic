@@ -62,9 +62,6 @@
                                 <constraint firstAttribute="height" constant="50" id="HY5-aF-kXE"/>
                             </constraints>
                             <state key="normal" title="Button"/>
-                            <connections>
-                                <action selector="themeStatusBtnClickHandler:" destination="-1" eventType="touchUpInside" id="4WT-cC-3dZ"/>
-                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>

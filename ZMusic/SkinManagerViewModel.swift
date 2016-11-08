@@ -9,7 +9,6 @@
 import Foundation
 import RxSwift
 import RxCocoa
-import PKHUD
 
 struct SkinManagerViewModel {
     //output

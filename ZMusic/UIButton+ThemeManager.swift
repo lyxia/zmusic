@@ -25,7 +25,16 @@ extension UIButton {
             self.setHighlightImage(normalImage)
             self.pickers.setObject(PickerClosureWrapper(normalImagePicker), forKey: NSString(string:"setHighlightImage:"))
         }
-        
+    }
+    
+    func nt_setColor(_ picker: @escaping ColorPicker) {
+        self.setColor(picker())
+        self.pickers.setObject(PickerClosureWrapper(picker), forKey: NSString(string:"setColor:"))
+    }
+    
+    func setColor(_ color: UIColor?) {
+        self.setTitleColor(color, for: .normal)
+        self.setTitleColor(color, for: .highlighted)
     }
     
     func setNormalImage(_ image: UIImage?) {

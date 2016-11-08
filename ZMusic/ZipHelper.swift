@@ -51,7 +51,6 @@ struct ZipHelper {
             return (filePath, unZipUrl.path)
         }.map { (filePath, unZipToPath) -> Bundle in
             if !FileManager.default.fileExists(atPath: unZipToPath) {
-                print("unzip")
                 if !SSZipArchive.unzipFile(atPath: filePath, toDestination: unZipToPath) {
                     throw ZIPError.ZIPErrorUnzip
                 } else {

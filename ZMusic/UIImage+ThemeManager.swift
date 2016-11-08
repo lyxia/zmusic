@@ -13,15 +13,15 @@ typealias ImagePicker = ()->UIImage?
 
 extension UIImage {
     
-    static func nt_imageNamed(_ name: String) -> ImagePicker {
+    static func nt_imageNamed(_ name: String, defaultImage: UIImage? = nil) -> ImagePicker {
         return {
-            return ThemeManager.shareInstance.getImage(byKey: name) ?? UIImage(named: name)
+            return ThemeManager.shareInstance.getImage(byKey: name) ?? defaultImage ?? UIImage(named: name)
         }
     }
     
-    static func nt_highlightedImageNamed(_ name: String) -> ImagePicker {
+    static func nt_highlightedImageNamed(_ name: String, defaultImage: UIImage? = nil) -> ImagePicker {
         return {
-            return ThemeManager.shareInstance.getHighlightedImage(byKey: name) ?? UIImage(named: name)
+            return ThemeManager.shareInstance.getHighlightedImage(byKey: name) ?? defaultImage ?? UIImage(named: name)
         }
     }
     

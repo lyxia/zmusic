@@ -15,7 +15,17 @@ import ZMusicUtils
 import PKHUD
 
 class SkinDetailViewController: UIViewController {
-
+    
+    private let viewModel: SkinDetailViewModel
+    init(withModel model:SkinDetailViewModel) {
+        viewModel = model
+        super.init(nibName:"SkinDetailViewController", bundle:Bundle.main)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     var themeInfo: ThemeInfo?
     
     private let disposeBag = DisposeBag()
@@ -40,6 +50,8 @@ class SkinDetailViewController: UIViewController {
         self.title = "皮肤详情"
 
         configUI()
+        
+        configViewModel()
     }
     
     override func viewDidLayoutSubviews() {
@@ -49,154 +61,100 @@ class SkinDetailViewController: UIViewController {
         imageCollectionView.contentOffset = CGPoint(x:imageCollectionView.contentSize.width/2 - imageCollectionView.bounds.width/2,y:0)
     }
     
-    func configUI() {
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named:"backActionIcon"), style: .plain, target: self, action: #selector(closeHandler))
-        
-        if let themeInfo = self.themeInfo {
-            let items = Observable.just([SectionModel(model:"first section", items:themeInfo.preview)])
-            let dataSource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, String>>()
-            dataSource.configureCell = {[weak weakSelf = self] (dataSource, cv, indexPath, element) in
-                let cell = cv.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
-                if let imageView = cell.viewWithTag(10001) as? UIImageView {
-                    imageView.tm_preview_setImage(with: URL(string: element), placeholderImage: UIImage())
-                } else {
-                    if let weakSelf = weakSelf {
-                        let imageView = weakSelf.getImageView(withUrl: element)
-                        cell.contentView.addSubview(imageView)
-                        imageView.tag = 10001
-                        imageView.snp.makeConstraints({ (make) in
-                            make.edges.equalTo(cell.contentView)
-                        })
-                    }
+    func configViewModel() {
+        //input
+        self.navigationItem.leftBarButtonItem?.rx.tap.bindTo(viewModel.tapBackButton).addDisposableTo(disposeBag)
+        let title = Observable.deferred({[weak weakSelf = self] in Observable.just(weakSelf?.themeStatusBtn.titleLabel?.text)})
+        self.themeStatusBtn.rx.tap.withLatestFrom(title)
+            .filter{s in
+                switch s {
+                case .some(_):
+                    return true
+                case .none:
+                    return false
                 }
-                return cell
+            }.map{$0!}.bindTo(viewModel.tapThemeStatusBtn).addDisposableTo(disposeBag)
+        //output
+        let dataSource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, String>>()
+        dataSource.configureCell = {[weak weakSelf = self] (dataSource, cv, indexPath, element) in
+            let cell = cv.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
+            if let imageView = cell.viewWithTag(10001) as? UIImageView {
+                imageView.tm_preview_setImage(with: URL(string: element), placeholderImage: UIImage())
+            } else {
+                if let weakSelf = weakSelf {
+                    let imageView = weakSelf.getImageView(withUrl: element)
+                    cell.contentView.addSubview(imageView)
+                    imageView.tag = 10001
+                    imageView.snp.makeConstraints({ (make) in
+                        make.edges.equalTo(cell.contentView)
+                    })
+                }
             }
-            items.bindTo(imageCollectionView.rx.items(dataSource: dataSource)).addDisposableTo(disposeBag)
-            
-            pageControl.numberOfPages = themeInfo.preview.count
-            imageCollectionView.rx.contentOffset.subscribe({ [weak weakSelf = self] (event) in
-                switch event {
-                case .next(let contentOffset):
-                        if let weakSelf = weakSelf {
-                            let percent = (contentOffset.x + weakSelf.imageCollectionView!.bounds.width/2) / weakSelf.imageCollectionView!.contentSize.width
-                            if percent < 1 {
-                                let page = Int(percent * CGFloat(weakSelf.themeInfo!.preview.count))
-                                weakSelf.pageControl.currentPage = page
-                            }
-                        }
-                default:
-                    break
-                }
-            }).addDisposableTo(disposeBag)
-            
-            themeNameLabel.text = themeInfo.title
-            themeSizeLabel.text = "\(Float(themeInfo.filesize) / (1024 * 1024))M"
-            changeBtnStatus()
+            return cell
         }
+        viewModel.images.bindTo(imageCollectionView.rx.items(dataSource: dataSource))
+            .addDisposableTo(disposeBag)
+        viewModel.dismissVC.drive(onNext: {[weak weakSelf = self] _ in
+            weakSelf?.dismiss(animated: true, completion: nil)
+        }).addDisposableTo(disposeBag)
+        viewModel.btnStatus.drive(onNext: {[weak weakSelf = self](title, enable) in
+            if enable {
+                weakSelf?.themeStatusBtn.setTitle(title, for: .normal)
+            } else {
+                weakSelf?.themeStatusBtn.setTitle(title, for: .disabled)
+            }
+            weakSelf?.themeStatusBtn.isEnabled = enable
+        }).addDisposableTo(disposeBag)
+        viewModel.startChangeTheme.drive(onNext: {_ in
+            PKHUD.sharedHUD.contentView = PKHUDTextView(text: "正在切换皮肤...")
+            PKHUD.sharedHUD.show()
+        }).addDisposableTo(disposeBag)
+        viewModel.didChangeTheme.drive(onNext: {[weak weakSelf = self] _ in
+            PKHUD.sharedHUD.hide()
+            weakSelf?.dismiss(animated: true, completion: nil)
+        }).addDisposableTo(disposeBag)
+        viewModel.startDownload.drive(onNext: {_ in
+            PKHUD.sharedHUD.contentView = PKHUDTextView(text: "正在下载...")
+            PKHUD.sharedHUD.show()
+        }).addDisposableTo(disposeBag)
+        viewModel.didDownload.drive(onNext: {result in
+            if !result {
+                PKHUD.sharedHUD.contentView = PKHUDTextView(text: "下载皮肤包失败")
+                PKHUD.sharedHUD.hide(afterDelay: 2)
+            }
+        }).addDisposableTo(disposeBag)
+        viewModel.startSavaTheme.drive(onNext: {_ in
+            PKHUD.sharedHUD.contentView = PKHUDTextView(text: "正在保存皮肤数据...")
+            PKHUD.sharedHUD.show()
+        }).addDisposableTo(disposeBag)
+        viewModel.didSavaTheme.drive(onNext: {result in
+            if !result {
+                PKHUD.sharedHUD.contentView = PKHUDTextView(text: "皮肤保存失败")
+                PKHUD.sharedHUD.hide(afterDelay: 2)
+            }
+        }).addDisposableTo(disposeBag)
+        pageControl.numberOfPages = viewModel.numOfPage
+        themeNameLabel.text = viewModel.themeName
+        themeSizeLabel.text = viewModel.themeSize
     }
     
-    @IBAction func themeStatusBtnClickHandler(_ sender: UIButton) {
-        if sender.currentTitle == "使用" {
-            useHandler()
-        } else {
-            downHandler()
-        }
-    }
-    
-    func changeBtnStatus() {
-        let isCurrentTheme = ThemeManager.shareInstance.isCurrentTheme(withId: themeInfo!.themeid)
-        let isLocalTheme = ThemeManager.shareInstance.isLocalTheme(withId: themeInfo!.themeid)
-        Observable.combineLatest(isCurrentTheme, isLocalTheme) {(o1, o2) in
-            return (o1, o2)
-        }.subscribe { [weak weakSelf = self] (event) in
+    func configUI() {
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named:"backActionIcon"), style: .plain, target: nil, action: nil)
+        
+        imageCollectionView.rx.contentOffset.subscribe({ [weak weakSelf = self] (event) in
             switch event {
-            case .next(let (isCurrent, localTheme)):
-                if isCurrent {
-                    if let localTheme = localTheme, localTheme.downloadPackage == weakSelf?.themeInfo!.downloadPackage{
-                        weakSelf!.themeStatusBtn.isEnabled = false
-                        weakSelf!.themeStatusBtn.setTitle("使用中", for: .disabled)
-                    } else {
-                        weakSelf!.themeStatusBtn.isEnabled = true
-                        weakSelf!.themeStatusBtn.setTitle("更新", for: .normal)
-                    }
-                } else {
-                    if let localTheme = localTheme, localTheme.downloadPackage == weakSelf?.themeInfo!.downloadPackage{
-                        weakSelf!.themeStatusBtn.isEnabled = true
-                        weakSelf!.themeStatusBtn.setTitle("使用", for: .normal)
-                    } else {
-                        weakSelf!.themeStatusBtn.isEnabled = true
-                        weakSelf!.themeStatusBtn.setTitle("下载", for: .normal)
+            case .next(let contentOffset):
+                if let weakSelf = weakSelf {
+                    let percent = (contentOffset.x + weakSelf.imageCollectionView!.bounds.width/2) / weakSelf.imageCollectionView!.contentSize.width
+                    if percent < 1 {
+                        let page = Int(percent * CGFloat(weakSelf.viewModel.numOfPage))
+                        weakSelf.pageControl.currentPage = page
                     }
                 }
             default:
                 break
             }
-        }.addDisposableTo(disposeBag)
-    }
-    
-    //使用
-    func useHandler() {
-        PKHUD.sharedHUD.contentView = PKHUDTextView(text: "正在切换皮肤...")
-        
-        let themeInfo = self.themeInfo!
-        ThemeManager.shareInstance.getRomoteBundle(romoteUrl: themeInfo.downloadPackage)
-            .flatMap { (bundle) -> Observable<Bool> in
-            return ThemeManager.shareInstance.setThemeWith(id: themeInfo.themeid, bundle: bundle)
-        }.subscribe { [weak weakSelf = self](event) in
-            switch event {
-            case .next(_):
-                PKHUD.sharedHUD.hide()
-                weakSelf!.dismiss(animated: true, completion: nil)
-            case .error(let error):
-                PKHUD.sharedHUD.contentView = PKHUDTextView(text: "皮肤切换失败")
-                PKHUD.sharedHUD.hide(afterDelay: 2)
-                print("\(error)")
-            case .completed:
-                break
-            }
-        }.addDisposableTo(disposeBag)
-    }
-    
-    //更新和下载
-    func downHandler() {
-        PKHUD.sharedHUD.contentView = PKHUDTextView(text: "正在下载...")
-        PKHUD.sharedHUD.show()
-        
-        let themeInfo = self.themeInfo!
-        ThemeManager.shareInstance.getRomoteBundle(romoteUrl: themeInfo.downloadPackage)
-            .flatMap {(bundle) -> Observable<Bool> in
-                print("正在切换皮肤...\(Thread.current)")
-                PKHUD.sharedHUD.contentView = PKHUDTextView(text: "正在切换皮肤...")
-                return ThemeManager.shareInstance.setThemeWith(id: themeInfo.themeid, bundle: bundle)
-            }.flatMap({_ -> Observable<Bool> in
-                print("正在保存皮肤数据...")
-                return ThemeManager.shareInstance.addThemeToLocal(theme: themeInfo)
-            }).subscribe { [weak weakSelf = self](event) in
-                print("皮肤切换完成-----\(Thread.current)")
-                switch event {
-                case .next(_):
-                    PKHUD.sharedHUD.hide()
-                    weakSelf!.dismiss(animated: true, completion: nil)
-                case .error(let error):
-                    var errMsg = "皮肤切换失败"
-                    if let zipError = error as? ZIPError {
-                        switch zipError {
-                        case .ZIPErrorDownload:
-                            errMsg = "皮肤下载失败"
-                        default:
-                            break
-                        }
-                    }
-                    PKHUD.sharedHUD.contentView = PKHUDTextView(text: errMsg)
-                    PKHUD.sharedHUD.hide(afterDelay: 2)
-                case .completed:
-                    break
-                }
-            }.addDisposableTo(disposeBag)
-    }
-    
-    func closeHandler() {
-        self.dismiss(animated: true, completion: nil)
+        }).addDisposableTo(disposeBag)
     }
     
     func getImageView(withUrl url: String) -> UIImageView {

@@ -50,14 +50,7 @@ class SkinCenterViewController: CuzNavigationContentController {
     
     private var imageCollectionView: UICollectionView!
     
-    //请求对象
-    private var requestForThemeList: Observable<[ThemeInfo]>  = {
-        KugoutIOSCDNProvider.request(.themeList)
-            .mapSuccessfulHTTPToObjectArray(type: ThemeInfo.self)
-    }()
-    
-    //collectionView数据观察者
-    private let collectionItems: Variable<[ThemeInfo]> = Variable([])
+    private var viewModel: SkinCenterViewModel!
     
     private var disposeBag = DisposeBag()
     
@@ -70,6 +63,9 @@ class SkinCenterViewController: CuzNavigationContentController {
         //配置UI
         configUI()
         
+        //配置viewmodel
+        configViewModel()
+        
         //开始请求数据
         requestThemeList()
     }
@@ -80,61 +76,54 @@ class SkinCenterViewController: CuzNavigationContentController {
         imageCollectionView.reloadData()
     }
     
-    func showSkinManager(){
-        let vc = SkinManagerViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
     func configUI() {
-        self.cuzNavigationItem?.leftBarButtonItem = UIBarButtonItem(image: UIImage(named:"top_back"), style: .plain, target: self, action: #selector(dismissNav))
-        self.cuzNavigationItem?.rightBarButtonItem = UIBarButtonItem(title: "管理", style: .plain, target: self, action: #selector(showSkinManager))
-        
+        //初始化imageCollectionView
         imageCollectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: getFlowLayoutWith(bounds: self.view.bounds))
         imageCollectionView.register(UINib(nibName: "SkinCenterCell", bundle: Bundle.main), forCellWithReuseIdentifier: "Cell")
         imageCollectionView.backgroundColor = .white
         imageCollectionView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0)
         self.view.addSubview(imageCollectionView)
-        
-        collectionItems.asObservable().bindTo(imageCollectionView.rx.items(cellIdentifier: "Cell")) {(index, data, cell) in
-            let skinCell = cell as! SkinCenterCell
-            skinCell.setInfo(data)
-        }.addDisposableTo(disposeBag)
-        
-        imageCollectionView.rx.itemSelected
-            .subscribe{ [weak weakSelf = self] event in
-                switch event {
-                case .next(let indexPath):
-                    if let value = weakSelf?.collectionItems.value {
-                        let themeInfo = value[indexPath.row]
-                        let skinDetailVc = SkinDetailViewController()
-                        skinDetailVc.themeInfo = themeInfo
-                        let nav = UINavigationController(rootViewController: skinDetailVc)
-                        weakSelf?.present(nav, animated: true, completion: nil)
-                    }
-                default:
-                    break
-                }
-            }
-            .addDisposableTo(disposeBag)
+        //设置navigationbar左右按钮
+        self.cuzNavigationItem?.leftBarButtonItem = UIBarButtonItem(image: UIImage(named:"top_back"), style: .plain, target: nil, action: nil)
+        self.cuzNavigationItem?.rightBarButtonItem = UIBarButtonItem(title: "管理", style: .plain, target: nil, action: nil)
     }
     
-    func dismissNav() {
-        self.navigationController?.dismiss(animated: true, completion: nil)
+    func configViewModel() {
+        self.viewModel = SkinCenterViewModel()
+        viewModel.dispose.addDisposableTo(disposeBag)
+        
+        //viewmodel input
+        self.cuzNavigationItem?.leftBarButtonItem?.rx.tap.bindTo(viewModel.tapTopBackButton).addDisposableTo(disposeBag)
+        self.cuzNavigationItem?.rightBarButtonItem?.rx.tap.bindTo(viewModel.tapManagerButton).addDisposableTo(disposeBag)
+        imageCollectionView.rx.itemSelected.bindTo(viewModel.skinSelected).addDisposableTo(disposeBag)
+        
+        //viewmodel output
+        viewModel.collectionItems.asObservable().bindTo(imageCollectionView.rx.items(cellIdentifier: "Cell")) {(index, data, cell) in
+            let skinCell = cell as! SkinCenterCell
+            skinCell.setInfo(data)
+            }.addDisposableTo(disposeBag)
+        viewModel.netError.drive(onNext: {_ in
+            PKHUD.sharedHUD.contentView = PKHUDTextView(text: "网络出现问题啦~")
+            PKHUD.sharedHUD.hide(afterDelay: 2)
+        }).addDisposableTo(disposeBag)
+        viewModel.presentSkinDetailVC.drive(onNext: { [weak weakSelf = self] themeInfo in
+            if let themeInfo = themeInfo {
+                let skinDetailVc = SkinDetailViewController(withModel: SkinDetailViewModel(model: themeInfo))
+                let nav = UINavigationController(rootViewController: skinDetailVc)
+                weakSelf?.present(nav, animated: true, completion: nil)
+            }
+        }).addDisposableTo(disposeBag)
+        viewModel.pushSkinManagerVC.drive(onNext: {[weak weakSelf = self] _ in
+            let vc = SkinManagerViewController()
+            weakSelf?.navigationController?.pushViewController(vc, animated: true)
+        }).addDisposableTo(disposeBag)
+        viewModel.dismissNav.drive(onNext: {[weak weakSelf = self] _ in
+            weakSelf?.navigationController?.dismiss(animated: true, completion: nil)
+        }).addDisposableTo(disposeBag)
     }
     
     func requestThemeList() {
-        _ = requestForThemeList.subscribe { [weak weakSelf = self](event) in
-            switch event {
-            case .next(let themes):
-                //用获取的数据来更新collectionItems
-                weakSelf?.collectionItems.value = themes
-            case .error(_):
-                PKHUD.sharedHUD.contentView = PKHUDTextView(text: "网络出现问题啦~")
-                PKHUD.sharedHUD.hide(afterDelay: 2)
-            case .completed:
-                break
-            }
-            }.addDisposableTo(disposeBag)
+        viewModel.fetchThemeList.onNext(Void())
     }
     
     struct FlowLayoutParams {

@@ -45,6 +45,10 @@
 		5083B94C1DCB602700D09FFA /* UIColor+ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5083B94B1DCB602700D09FFA /* UIColor+ThemeManager.swift */; };
 		5083B9501DCB609F00D09FFA /* UIImage+ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5083B94F1DCB609F00D09FFA /* UIImage+ThemeManager.swift */; };
 		5083B9521DCB62B800D09FFA /* UIImageView+ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5083B9511DCB62B800D09FFA /* UIImageView+ThemeManager.swift */; };
+		50AFD5171DD1630200D56CA3 /* SkinCenterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AFD5161DD1630200D56CA3 /* SkinCenterViewModel.swift */; };
+		50AFD51A1DD17BA300D56CA3 /* SkinDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AFD5191DD17BA300D56CA3 /* SkinDetailViewModel.swift */; };
+		50AFD51C1DD1D19300D56CA3 /* CuzNavigationBar+ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AFD51B1DD1D19300D56CA3 /* CuzNavigationBar+ThemeManager.swift */; };
+		50AFD51E1DD1DAE100D56CA3 /* UILabel+ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AFD51D1DD1DAE100D56CA3 /* UILabel+ThemeManager.swift */; };
 		50C153841DC3664400554F1A /* KugouIOSCDNAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C153831DC3664400554F1A /* KugouIOSCDNAPI.swift */; };
 		50CA2C811DCC56080023E433 /* UIButton+ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CA2C801DCC56080023E433 /* UIButton+ThemeManager.swift */; };
 		50CA2C851DCC5ADD0023E433 /* UIView+ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CA2C841DCC5ADD0023E433 /* UIView+ThemeManager.swift */; };
@@ -135,6 +139,10 @@
 		5083B94B1DCB602700D09FFA /* UIColor+ThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+ThemeManager.swift"; sourceTree = "<group>"; };
 		5083B94F1DCB609F00D09FFA /* UIImage+ThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ThemeManager.swift"; sourceTree = "<group>"; };
 		5083B9511DCB62B800D09FFA /* UIImageView+ThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+ThemeManager.swift"; sourceTree = "<group>"; };
+		50AFD5161DD1630200D56CA3 /* SkinCenterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkinCenterViewModel.swift; sourceTree = "<group>"; };
+		50AFD5191DD17BA300D56CA3 /* SkinDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkinDetailViewModel.swift; sourceTree = "<group>"; };
+		50AFD51B1DD1D19300D56CA3 /* CuzNavigationBar+ThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CuzNavigationBar+ThemeManager.swift"; sourceTree = "<group>"; };
+		50AFD51D1DD1DAE100D56CA3 /* UILabel+ThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+ThemeManager.swift"; sourceTree = "<group>"; };
 		50C153831DC3664400554F1A /* KugouIOSCDNAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KugouIOSCDNAPI.swift; sourceTree = "<group>"; };
 		50CA2C801DCC56080023E433 /* UIButton+ThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+ThemeManager.swift"; sourceTree = "<group>"; };
 		50CA2C841DCC5ADD0023E433 /* UIView+ThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+ThemeManager.swift"; sourceTree = "<group>"; };
@@ -262,11 +270,13 @@
 				50613A961DBB5416005CA539 /* SideBarViewController.xib */,
 				50613A9D1DBBA748005CA539 /* SideBarPresentationController.swift */,
 				50272E441DBEF2E20071304E /* SkinCenterViewController.swift */,
+				50AFD5161DD1630200D56CA3 /* SkinCenterViewModel.swift */,
 				5083B9431DC9F2F300D09FFA /* SkinManagerViewController.swift */,
 				50CA2C8E1DD055780023E433 /* SkinManagerViewModel.swift */,
 				50FB6CA61DC47D33001FEBCD /* SkinCenterCell.swift */,
 				50FB6CA71DC47D33001FEBCD /* SkinCenterCell.xib */,
 				5051DE501DC5C0400086E852 /* SkinDetailViewController.swift */,
+				50AFD5191DD17BA300D56CA3 /* SkinDetailViewModel.swift */,
 				5051DE511DC5C0400086E852 /* SkinDetailViewController.xib */,
 			);
 			name = VIewControllers;
@@ -307,7 +317,9 @@
 				50CA2C801DCC56080023E433 /* UIButton+ThemeManager.swift */,
 				50CA2C841DCC5ADD0023E433 /* UIView+ThemeManager.swift */,
 				5083B9491DCB5C0300D09FFA /* ZMDeallocBlockExecutor.swift */,
+				50AFD51B1DD1D19300D56CA3 /* CuzNavigationBar+ThemeManager.swift */,
 				50CA2C8A1DCC98730023E433 /* ZMUIConfig.swift */,
+				50AFD51D1DD1DAE100D56CA3 /* UILabel+ThemeManager.swift */,
 			);
 			name = ThemeManager;
 			sourceTree = "<group>";
@@ -595,6 +607,7 @@
 				5051DE521DC5C0400086E852 /* SkinDetailViewController.swift in Sources */,
 				5051FA851DAB7C6100376F89 /* AppDelegate.swift in Sources */,
 				50FB6CA81DC47D33001FEBCD /* SkinCenterCell.swift in Sources */,
+				50AFD51A1DD17BA300D56CA3 /* SkinDetailViewModel.swift in Sources */,
 				5083B93C1DC9BA0C00D09FFA /* Dependencies.swift in Sources */,
 				50613A971DBB5416005CA539 /* SideBarViewController.swift in Sources */,
 				502A66F51DC5A71300939400 /* Observable+Netwoking.swift in Sources */,
@@ -609,6 +622,7 @@
 				5083B9401DC9BA7200D09FFA /* ReachabilityService.swift in Sources */,
 				5083B94C1DCB602700D09FFA /* UIColor+ThemeManager.swift in Sources */,
 				50790C6F1DB9EA5100D4F75D /* ThemeManager.swift in Sources */,
+				50AFD51E1DD1DAE100D56CA3 /* UILabel+ThemeManager.swift in Sources */,
 				50C153841DC3664400554F1A /* KugouIOSCDNAPI.swift in Sources */,
 				5083B94A1DCB5C0300D09FFA /* ZMDeallocBlockExecutor.swift in Sources */,
 				5083B93E1DC9BA4200D09FFA /* Wireframe.swift in Sources */,
@@ -616,8 +630,10 @@
 				5083B9481DCB4E7600D09FFA /* NSObect+ThemeManager.swift in Sources */,
 				507529011DC778A500D2BD66 /* ZipHelper.swift in Sources */,
 				50272E451DBEF2E20071304E /* SkinCenterViewController.swift in Sources */,
+				50AFD5171DD1630200D56CA3 /* SkinCenterViewModel.swift in Sources */,
 				50CA2C851DCC5ADD0023E433 /* UIView+ThemeManager.swift in Sources */,
 				5083B9521DCB62B800D09FFA /* UIImageView+ThemeManager.swift in Sources */,
+				50AFD51C1DD1D19300D56CA3 /* CuzNavigationBar+ThemeManager.swift in Sources */,
 				50613A8F1DBB40E5005CA539 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

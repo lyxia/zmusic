@@ -13,8 +13,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="ZMusic" customModuleProvider="target">
             <connections>
                 <outlet property="bgImageView" destination="XMF-TN-dZi" id="vnK-Cf-OC2"/>
-                <outlet property="contentView" destination="Xcd-An-DkQ" id="5Hq-sk-mcj"/>
+                <outlet property="contentBgImageVIew" destination="5Fc-2q-WNK" id="kUx-af-Vnw"/>
                 <outlet property="downBtn" destination="6TK-0U-fx1" id="4V5-GC-k09"/>
+                <outlet property="kugouLabel" destination="2WC-Tc-s33" id="LsO-6c-yLm"/>
                 <outlet property="likeBtn" destination="935-8I-WRD" id="f4U-o1-Qs7"/>
                 <outlet property="lineView" destination="Qgu-oV-o8d" id="GIB-7C-knM"/>
                 <outlet property="listenGroupBtn" destination="hJe-zR-MwU" id="0ax-yh-hPl"/>
@@ -22,6 +23,7 @@
                 <outlet property="listenRadioBtn" destination="FSO-Zy-iKb" id="Vyi-EP-sJJ"/>
                 <outlet property="musicListBtn" destination="qMd-NG-wzb" id="7gE-h5-yvd"/>
                 <outlet property="recentBtn" destination="K2C-Vl-8vU" id="1R6-lj-hsc"/>
+                <outlet property="smallBgContentView" destination="Xcd-An-DkQ" id="V4W-Tr-VCR"/>
                 <outlet property="view" destination="iN0-l3-epB" id="rY0-nq-yNi"/>
             </connections>
         </placeholder>
@@ -30,6 +32,9 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Fc-2q-WNK">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_listen_bg_one" translatesAutoresizingMaskIntoConstraints="NO" id="XMF-TN-dZi">
                     <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                 </imageView>
@@ -39,7 +44,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HeE-OI-umb">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="668"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.17999999999999999" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="不变的只有音乐" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2WC-Tc-s33">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="不变的只有音乐" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2WC-Tc-s33">
                                     <rect key="frame" x="127" y="8" width="121.5" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
@@ -130,10 +135,10 @@
                                             </constraints>
                                         </stackView>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="1000" id="0ta-MZ-2PN"/>
                                         <constraint firstAttribute="trailing" secondItem="MTt-5N-xDj" secondAttribute="trailing" id="GMn-iR-gc7"/>
+                                        <constraint firstAttribute="height" constant="1000" id="OO8-d6-ASR"/>
                                         <constraint firstItem="MTt-5N-xDj" firstAttribute="top" secondItem="Xcd-An-DkQ" secondAttribute="top" constant="20" id="d0e-Qn-SSW"/>
                                         <constraint firstItem="MTt-5N-xDj" firstAttribute="leading" secondItem="Xcd-An-DkQ" secondAttribute="leading" id="mGb-xR-rOk"/>
                                     </constraints>
@@ -169,12 +174,16 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="5Fc-2q-WNK" secondAttribute="trailing" id="3hD-7S-KB1"/>
                 <constraint firstItem="pOQ-Pr-1Gc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="4DO-JP-P6u"/>
                 <constraint firstAttribute="bottom" secondItem="pOQ-Pr-1Gc" secondAttribute="bottom" id="6WK-Uc-j6W"/>
+                <constraint firstItem="5Fc-2q-WNK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="8lZ-9Z-j7c"/>
                 <constraint firstAttribute="trailing" secondItem="XMF-TN-dZi" secondAttribute="trailing" id="Gfx-3X-odQ"/>
                 <constraint firstItem="pOQ-Pr-1Gc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="P27-sn-Tz7"/>
+                <constraint firstAttribute="bottom" secondItem="5Fc-2q-WNK" secondAttribute="bottom" id="VSc-Vv-SMU"/>
                 <constraint firstAttribute="trailing" secondItem="pOQ-Pr-1Gc" secondAttribute="trailing" id="lRa-Ae-5mM"/>
                 <constraint firstAttribute="bottom" secondItem="XMF-TN-dZi" secondAttribute="bottom" id="npa-5S-6lJ"/>
+                <constraint firstItem="5Fc-2q-WNK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ozk-j4-UrN"/>
                 <constraint firstItem="XMF-TN-dZi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="64" id="ozw-XS-Xet"/>
                 <constraint firstItem="XMF-TN-dZi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="qRI-h7-1B1"/>
             </constraints>

@@ -28,6 +28,7 @@ class SkinManagerViewController: CuzNavigationContentController {
         viewModel = SkinManagerViewModel()
         
         configUI()
+        configViewModel()
         fetchThemeList()
     }
     
@@ -39,13 +40,7 @@ class SkinManagerViewController: CuzNavigationContentController {
         print("SkinManagerViewController dealloc")
     }
     
-    func configUI() {
-        imageCollectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: getFlowLayoutWith(bounds: self.view.bounds))
-        imageCollectionView.register(UINib(nibName: "SkinCenterCell", bundle: Bundle.main), forCellWithReuseIdentifier: "Cell")
-        imageCollectionView.backgroundColor = .white
-        imageCollectionView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0)
-        self.view.addSubview(imageCollectionView)
-        
+    func configViewModel() {
         //数据绑定
         viewModel.collectionItems.asObservable().bindTo(imageCollectionView.rx.items(cellIdentifier: "Cell")) {[weak weakSelf = self](index, data, cell) in
             let skinCell = cell as! SkinCenterCell
@@ -59,7 +54,7 @@ class SkinManagerViewController: CuzNavigationContentController {
                 return true
             }
             return false
-        }.asDriver(onErrorJustReturn: "")
+            }.asDriver(onErrorJustReturn: "")
         viewModel.showDeleteAlert.flatMapLatest { (_) -> SharedSequence<DriverSharingStrategy, String> in
             return sureDeleteCurrent
             }
@@ -102,7 +97,14 @@ class SkinManagerViewController: CuzNavigationContentController {
         viewModel.dismissViewController.drive(onNext: {[weak weakSelf = self] _ in
             _ = weakSelf?.navigationController?.popViewController(animated: true)
         }).addDisposableTo(disposeBag)
-        
+    }
+    
+    func configUI() {
+        imageCollectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: getFlowLayoutWith(bounds: self.view.bounds))
+        imageCollectionView.register(UINib(nibName: "SkinCenterCell", bundle: Bundle.main), forCellWithReuseIdentifier: "Cell")
+        imageCollectionView.backgroundColor = .white
+        imageCollectionView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0)
+        self.view.addSubview(imageCollectionView)
     }
     
     struct FlowLayoutParams {

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct ZMThemeChangeNotification {
     static let name = NSNotification.Name("ZMThemeChangeNotification")

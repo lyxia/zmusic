@@ -66,7 +66,6 @@ class ThemeManager {
     
     public func setThemeWith(id: Int, bundle: Bundle) -> Observable<Bool> {
         return Observable<NSDictionary>.create { (observer) -> Disposable in
-            print("加载处理json-----\(Thread.current)")
             let configPath = bundle.path(forResource: "themeConfig", ofType: "json")!
             let url = URL(fileURLWithPath: configPath)
             do {
@@ -103,7 +102,8 @@ class ThemeManager {
             let imageName = imageInfo["image"] as! String
             
             let imagePath = curBundle.resourcePath! + "/" + imageName
-            return UIImage(contentsOfFile: imagePath) ?? UIImage(contentsOfFile:defaultThemeBoundle.resourcePath! + "/" + imageName)
+            return UIImage(contentsOfFile: imagePath)
+            //return UIImage(contentsOfFile: imagePath) ?? UIImage(contentsOfFile:defaultThemeBoundle.resourcePath! + "/" + imageName)
         }
         return nil
     }
@@ -118,7 +118,8 @@ class ThemeManager {
             let imageInfo = filters.first as! NSDictionary
             let imageName = imageInfo["highlighted_image"] as! String
             let imagePath = curBundle.resourcePath! + "/" + imageName
-            return UIImage(contentsOfFile: imagePath) ?? UIImage(contentsOfFile:defaultThemeBoundle.resourcePath! + "/" + imageName)
+            return UIImage(contentsOfFile: imagePath)
+            //return UIImage(contentsOfFile: imagePath) ?? UIImage(contentsOfFile:defaultThemeBoundle.resourcePath! + "/" + imageName)
         }
         return nil
     }
@@ -137,6 +138,20 @@ class ThemeManager {
             return UIColor.hexStringToColor(hexString: color)
         }
         return nil
+    }
+    
+    func getBool(byKey key:String) -> Bool {
+        let boolsInfo = curConfig["boolType"] as! NSArray
+        let filters = boolsInfo.filter { (bool) -> Bool in
+            let dic = bool as! NSDictionary
+            return (dic["key"] as! String) == key
+        }
+        if let boolInfo = filters.first as? NSDictionary {
+            if (boolInfo["boolvalue"] as? String) == "1" {
+                return true
+            }
+        }
+        return false
     }
 }
 

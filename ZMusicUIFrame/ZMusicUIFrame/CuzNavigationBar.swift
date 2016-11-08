@@ -41,7 +41,7 @@ public class CuzNavigationBar: UINavigationBar, UINavigationBarDelegate {
                 bg = UIImageView(image: backgroundImage)
                 bg?.contentMode = .scaleToFill
                 bg?.translatesAutoresizingMaskIntoConstraints = false
-                self.insertSubview(bg!, at: 0)
+                self.insertSubview(bg!, at: 1)
                 bg?.snp.makeConstraints({ (make) in
                     make.left.right.equalTo(self)
                     make.top.equalTo(self).offset(-20)

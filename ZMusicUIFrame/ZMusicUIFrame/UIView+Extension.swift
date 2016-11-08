@@ -15,6 +15,15 @@ fileprivate struct AssociatedKeys {
 }
 
 extension UIView {
+    public func setBackgroundImageWithPattern(_ image: UIImage?) {
+        if let image = image {
+            let bgColor = UIColor.init(patternImage: image)
+            self.backgroundColor = bgColor
+        } else {
+            self.backgroundColor = nil
+        }
+    }
+    
     public func setBackgroundImage(_ image: UIImage?) {
         if let image = image {
             self.bgImageView.image = nil
@@ -42,5 +51,36 @@ extension UIView {
             objc_setAssociatedObject(self, &AssociatedKeys.bgImageKey, bgImageView, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             return bgImageView
         }
+    }
+}
+
+public extension UIView {
+    public func screenShot() -> UIImage? {
+        guard frame.size.height > 0 && frame.size.width > 0 else {
+            return nil
+        }
+        
+        UIGraphicsBeginImageContextWithOptions(frame.size, false, 0)
+        layer.render(in: UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return image
+    }
+    
+    public func screenShot(withSize size:CGSize) -> UIImage? {
+        guard frame.size.height > 0 && frame.size.width > 0 else {
+            return nil
+        }
+        guard size.height > 0 && size.width > 0 else {
+            return nil
+        }
+        
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        layer.render(in: UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return image
     }
 }
