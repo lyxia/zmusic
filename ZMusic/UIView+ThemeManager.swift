@@ -29,7 +29,7 @@ extension UIView {
                 return nil
             }
         }
-        self.setBackgroundImageWithPattern(newPicker())
+        self.setBackgroundImage(newPicker())
         self.pickers.setObject(PickerClosureWrapper(newPicker), forKey: NSString(string:"setBackgroundImage:"))
     }
     

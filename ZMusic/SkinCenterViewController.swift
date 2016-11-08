@@ -44,10 +44,6 @@ class SkinCenterNavgationController: CuzNavigationController {
 import ZMusicUtils
 class SkinCenterViewController: CuzNavigationContentController {
     
-    deinit {
-        print("SkinCenterViewController dealloc")
-    }
-    
     private var imageCollectionView: UICollectionView!
     
     private var viewModel: SkinCenterViewModel!
@@ -108,9 +104,22 @@ class SkinCenterViewController: CuzNavigationContentController {
         }).addDisposableTo(disposeBag)
         viewModel.presentSkinDetailVC.drive(onNext: { [weak weakSelf = self] themeInfo in
             if let themeInfo = themeInfo {
-                let skinDetailVc = SkinDetailViewController(withModel: SkinDetailViewModel(model: themeInfo))
-                let nav = UINavigationController(rootViewController: skinDetailVc)
-                weakSelf?.present(nav, animated: true, completion: nil)
+                if let weakSelf = weakSelf {
+                    //截图
+                    let image = weakSelf.view.screenShot()
+                    //模糊效果
+                    let blurEffect = UIBlurEffect(style: .light)
+                    let blurView = UIVisualEffectView(effect: blurEffect)
+                    blurView.frame.size = weakSelf.view.frame.size
+                    //给图片添加模糊效果
+                    let bgView = UIImageView(image: image)
+                    bgView.addSubview(blurView)
+                    
+                    //做背景
+                    let skinDetailVc = SkinDetailViewController(withModel: SkinDetailViewModel(model: themeInfo), bg:bgView)
+                    let nav = UINavigationController(rootViewController: skinDetailVc)
+                    weakSelf.present(nav, animated: true, completion: nil)
+                }
             }
         }).addDisposableTo(disposeBag)
         viewModel.pushSkinManagerVC.drive(onNext: {[weak weakSelf = self] _ in

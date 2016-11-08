@@ -17,8 +17,10 @@ import PKHUD
 class SkinDetailViewController: UIViewController {
     
     private let viewModel: SkinDetailViewModel
-    init(withModel model:SkinDetailViewModel) {
+    private let effectBg: UIView
+    init(withModel model:SkinDetailViewModel, bg: UIView) {
         viewModel = model
+        effectBg = bg
         super.init(nibName:"SkinDetailViewController", bundle:Bundle.main)
     }
     
@@ -45,10 +47,11 @@ class SkinDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.setBackgroundImage(nil, for: .any, barMetrics: .default)
         self.navigationController?.navigationBar.subviews.first?.alpha = 0
         self.title = "皮肤详情"
-
+        
+        self.view.insertSubview(effectBg, at: 0)
+        
         configUI()
         
         configViewModel()

@@ -36,10 +36,6 @@ class SkinManagerViewController: CuzNavigationContentController {
         viewModel.fetchThemeList.onNext(Void())
     }
     
-    deinit {
-        print("SkinManagerViewController dealloc")
-    }
-    
     func configViewModel() {
         //数据绑定
         viewModel.collectionItems.asObservable().bindTo(imageCollectionView.rx.items(cellIdentifier: "Cell")) {[weak weakSelf = self](index, data, cell) in
