@@ -12,6 +12,7 @@
 		5051FB131DAB7E0F00376F89 /* ZMusicUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5051FB121DAB7E0F00376F89 /* ZMusicUtilsTests.swift */; };
 		5051FB151DAB7E0F00376F89 /* ZMusicUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 5051FB071DAB7E0F00376F89 /* ZMusicUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5051FB311DAB832E00376F89 /* UIKitExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5051FB301DAB832E00376F89 /* UIKitExtension.swift */; };
+		50F71B1E1DD31A3700B46842 /* ZMFPSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F71B1D1DD31A3700B46842 /* ZMFPSLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +34,7 @@
 		5051FB121DAB7E0F00376F89 /* ZMusicUtilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZMusicUtilsTests.swift; sourceTree = "<group>"; };
 		5051FB141DAB7E0F00376F89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5051FB301DAB832E00376F89 /* UIKitExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitExtension.swift; sourceTree = "<group>"; };
+		50F71B1D1DD31A3700B46842 /* ZMFPSLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZMFPSLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			children = (
 				5051FB071DAB7E0F00376F89 /* ZMusicUtils.h */,
 				5051FB081DAB7E0F00376F89 /* Info.plist */,
+				50F71B1D1DD31A3700B46842 /* ZMFPSLabel.swift */,
 				5051FB301DAB832E00376F89 /* UIKitExtension.swift */,
 				50272E381DBDB2E30071304E /* UserDefaults+Extension.swift */,
 			);
@@ -207,6 +210,7 @@
 			files = (
 				50272E391DBDB2E30071304E /* UserDefaults+Extension.swift in Sources */,
 				5051FB311DAB832E00376F89 /* UIKitExtension.swift in Sources */,
+				50F71B1E1DD31A3700B46842 /* ZMFPSLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

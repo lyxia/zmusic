@@ -8,6 +8,7 @@
 
 import UIKit
 import ZMusicUIFrame
+import ZMusicUtils
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,16 +18,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        ZMUIConfig.setupUIConfig()
+        
         let bounds = UIScreen.main.bounds
         self.window = UIWindow(frame: bounds)
-        
-        ZMUIConfig.setupUIConfig()
         
         let vc = PlayBarViewController()
         self.window?.rootViewController = vc
         
         self.window?.makeKeyAndVisible()
+        
+        self.addLanuchConfig()
+        
         return true
+    }
+    
+    func addLanuchConfig() {
+        //添加启动动画
+        let vc = UIStoryboard(name: "LaunchScreen", bundle: nil).instantiateViewController(withIdentifier: "LaunchScreen")
+        if let lanchView = vc.view, let mainWindow = UIApplication.shared.keyWindow {
+            lanchView.frame = mainWindow.bounds
+            mainWindow.addSubview(lanchView)
+            UIView.animate(withDuration: 0.6,
+                           animations: {
+                            lanchView.alpha = 0
+                            lanchView.layer.transform = CATransform3DScale(CATransform3DIdentity, 1.5, 1.5, 1)
+            },
+                           completion: {_ in
+                            lanchView.removeFromSuperview()
+            })
+        }
+        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

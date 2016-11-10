@@ -191,6 +191,8 @@
 		50272E431DBEF27E0071304E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				50FB6CA61DC47D33001FEBCD /* SkinCenterCell.swift */,
+				50FB6CA71DC47D33001FEBCD /* SkinCenterCell.xib */,
 				50272E3E1DBE4FA70071304E /* SystemCellValue1.swift */,
 				50272E3F1DBE4FA70071304E /* SystemCellValue1.xib */,
 			);
@@ -230,6 +232,7 @@
 		5051FA831DAB7C6100376F89 /* ZMusic */ = {
 			isa = PBXGroup;
 			children = (
+				50F71B201DD31AEB00B46842 /* ViewModels */,
 				50790C6B1DB9E90900D4F75D /* ThemeManager */,
 				502A66F11DC59FA000939400 /* Model */,
 				506681301DC358B700D97F26 /* Network */,
@@ -270,13 +273,8 @@
 				50613A961DBB5416005CA539 /* SideBarViewController.xib */,
 				50613A9D1DBBA748005CA539 /* SideBarPresentationController.swift */,
 				50272E441DBEF2E20071304E /* SkinCenterViewController.swift */,
-				50AFD5161DD1630200D56CA3 /* SkinCenterViewModel.swift */,
 				5083B9431DC9F2F300D09FFA /* SkinManagerViewController.swift */,
-				50CA2C8E1DD055780023E433 /* SkinManagerViewModel.swift */,
-				50FB6CA61DC47D33001FEBCD /* SkinCenterCell.swift */,
-				50FB6CA71DC47D33001FEBCD /* SkinCenterCell.xib */,
 				5051DE501DC5C0400086E852 /* SkinDetailViewController.swift */,
-				50AFD5191DD17BA300D56CA3 /* SkinDetailViewModel.swift */,
 				5051DE511DC5C0400086E852 /* SkinDetailViewController.xib */,
 			);
 			name = VIewControllers;
@@ -333,6 +331,16 @@
 				5051FA901DAB7C6100376F89 /* Info.plist */,
 			);
 			name = "Support Files";
+			sourceTree = "<group>";
+		};
+		50F71B201DD31AEB00B46842 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				50AFD5161DD1630200D56CA3 /* SkinCenterViewModel.swift */,
+				50CA2C8E1DD055780023E433 /* SkinManagerViewModel.swift */,
+				50AFD5191DD17BA300D56CA3 /* SkinDetailViewModel.swift */,
+			);
+			name = ViewModels;
 			sourceTree = "<group>";
 		};
 		63011671DB8B2BEE9E4A222E /* Pods */ = {

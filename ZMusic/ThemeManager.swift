@@ -50,6 +50,7 @@ class ThemeManager {
             self.setThemeBlockRunloop(id: defaultThemeId, bundle: defaultThemeBoundle)
         }
     }
+    
     private func setThemeBlockRunloop(id: Int, bundle: Bundle) {
         let configPath = bundle.path(forResource: "themeConfig", ofType: "json")!
         let url = URL(fileURLWithPath: configPath)

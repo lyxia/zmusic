@@ -15,6 +15,7 @@
 		5051FAEF1DAB7DBC00376F89 /* ZMusicUIFrameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5051FAEE1DAB7DBC00376F89 /* ZMusicUIFrameTests.swift */; };
 		5051FAF11DAB7DBC00376F89 /* ZMusicUIFrame.h in Headers */ = {isa = PBXBuildFile; fileRef = 5051FAE31DAB7DBC00376F89 /* ZMusicUIFrame.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		507528FD1DC7293000D2BD66 /* CuzLinePresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507528FC1DC7293000D2BD66 /* CuzLinePresentationController.swift */; };
+		50B38DA71DD42D9900D2906A /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50B38DA31DD4292E00D2906A /* SnapKit.framework */; };
 		50CA2C8D1DCCA9C90023E433 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CA2C8C1DCCA9C90023E433 /* UIColor+Extension.swift */; };
 		50EC6A7C1DB71A8900A1DFC1 /* CuzDrawerPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EC6A761DB71A8900A1DFC1 /* CuzDrawerPresentationController.swift */; };
 		50EC6A7D1DB71A8900A1DFC1 /* CuzNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EC6A771DB71A8900A1DFC1 /* CuzNavigationBar.swift */; };
@@ -22,7 +23,6 @@
 		50EC6A7F1DB71A8900A1DFC1 /* CuzNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EC6A791DB71A8900A1DFC1 /* CuzNavigationController.swift */; };
 		50EC6A801DB71A8900A1DFC1 /* CuzNavigationTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EC6A7A1DB71A8900A1DFC1 /* CuzNavigationTransitionAnimator.swift */; };
 		50EC6A811DB71A8900A1DFC1 /* CuzRotationPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EC6A7B1DB71A8900A1DFC1 /* CuzRotationPresentationController.swift */; };
-		50EC6A861DB720E400A1DFC1 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50EC6A851DB720E400A1DFC1 /* SnapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +47,7 @@
 		5051FAEE1DAB7DBC00376F89 /* ZMusicUIFrameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZMusicUIFrameTests.swift; sourceTree = "<group>"; };
 		5051FAF01DAB7DBC00376F89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		507528FC1DC7293000D2BD66 /* CuzLinePresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuzLinePresentationController.swift; sourceTree = "<group>"; };
+		50B38DA31DD4292E00D2906A /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Frameworks/SnapKit.framework; sourceTree = "<group>"; };
 		50CA2C8C1DCCA9C90023E433 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		50EC6A761DB71A8900A1DFC1 /* CuzDrawerPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuzDrawerPresentationController.swift; sourceTree = "<group>"; };
 		50EC6A771DB71A8900A1DFC1 /* CuzNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuzNavigationBar.swift; sourceTree = "<group>"; };
@@ -54,9 +55,6 @@
 		50EC6A791DB71A8900A1DFC1 /* CuzNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuzNavigationController.swift; sourceTree = "<group>"; };
 		50EC6A7A1DB71A8900A1DFC1 /* CuzNavigationTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuzNavigationTransitionAnimator.swift; sourceTree = "<group>"; };
 		50EC6A7B1DB71A8900A1DFC1 /* CuzRotationPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuzRotationPresentationController.swift; sourceTree = "<group>"; };
-		50EC6A851DB720E400A1DFC1 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/ZMusic-bmzxgpyfxgukhzaxhglojwzqcldv/Build/Products/Debug-iphoneos/SnapKit/SnapKit.framework"; sourceTree = "<group>"; };
-		6E5860B66C924FCC9F1EC581 /* Pods-ZMusicUIFrame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZMusicUIFrame.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZMusicUIFrame/Pods-ZMusicUIFrame.release.xcconfig"; sourceTree = "<group>"; };
-		7B216C2D467C198B760CD39E /* Pods-ZMusicUIFrame.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZMusicUIFrame.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZMusicUIFrame/Pods-ZMusicUIFrame.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50EC6A861DB720E400A1DFC1 /* SnapKit.framework in Frameworks */,
+				50B38DA71DD42D9900D2906A /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,15 +77,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		176A52DBEDB71E8B74716216 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				7B216C2D467C198B760CD39E /* Pods-ZMusicUIFrame.debug.xcconfig */,
-				6E5860B66C924FCC9F1EC581 /* Pods-ZMusicUIFrame.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		50272E331DBDACB10071304E /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,7 +103,6 @@
 				5051FAED1DAB7DBC00376F89 /* ZMusicUIFrameTests */,
 				5051FAE11DAB7DBC00376F89 /* Products */,
 				50EC6A821DB71AC400A1DFC1 /* Frameworks */,
-				176A52DBEDB71E8B74716216 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -152,7 +140,7 @@
 		50EC6A821DB71AC400A1DFC1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				50EC6A851DB720E400A1DFC1 /* SnapKit.framework */,
+				50B38DA31DD4292E00D2906A /* SnapKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -196,12 +184,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5051FAF41DAB7DBC00376F89 /* Build configuration list for PBXNativeTarget "ZMusicUIFrame" */;
 			buildPhases = (
-				E11E655DAE9C293E66BF8D06 /* [CP] Check Pods Manifest.lock */,
 				5051FADB1DAB7DBC00376F89 /* Sources */,
 				5051FADC1DAB7DBC00376F89 /* Frameworks */,
 				5051FADD1DAB7DBC00376F89 /* Headers */,
 				5051FADE1DAB7DBC00376F89 /* Resources */,
-				F109A6ED167D204440BE4A6C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -287,39 +273,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		E11E655DAE9C293E66BF8D06 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		F109A6ED167D204440BE4A6C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZMusicUIFrame/Pods-ZMusicUIFrame-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5051FADB1DAB7DBC00376F89 /* Sources */ = {
@@ -469,7 +422,6 @@
 		};
 		5051FAF51DAB7DBC00376F89 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7B216C2D467C198B760CD39E /* Pods-ZMusicUIFrame.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -478,6 +430,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks";
 				INFOPLIST_FILE = ZMusicUIFrame/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -491,7 +444,6 @@
 		};
 		5051FAF61DAB7DBC00376F89 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6E5860B66C924FCC9F1EC581 /* Pods-ZMusicUIFrame.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -500,6 +452,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks";
 				INFOPLIST_FILE = ZMusicUIFrame/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
