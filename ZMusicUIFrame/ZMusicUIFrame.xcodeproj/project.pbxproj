@@ -15,7 +15,6 @@
 		5051FAEF1DAB7DBC00376F89 /* ZMusicUIFrameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5051FAEE1DAB7DBC00376F89 /* ZMusicUIFrameTests.swift */; };
 		5051FAF11DAB7DBC00376F89 /* ZMusicUIFrame.h in Headers */ = {isa = PBXBuildFile; fileRef = 5051FAE31DAB7DBC00376F89 /* ZMusicUIFrame.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		507528FD1DC7293000D2BD66 /* CuzLinePresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507528FC1DC7293000D2BD66 /* CuzLinePresentationController.swift */; };
-		50B38DA71DD42D9900D2906A /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50B38DA31DD4292E00D2906A /* SnapKit.framework */; };
 		50CA2C8D1DCCA9C90023E433 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CA2C8C1DCCA9C90023E433 /* UIColor+Extension.swift */; };
 		50EC6A7C1DB71A8900A1DFC1 /* CuzDrawerPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EC6A761DB71A8900A1DFC1 /* CuzDrawerPresentationController.swift */; };
 		50EC6A7D1DB71A8900A1DFC1 /* CuzNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EC6A771DB71A8900A1DFC1 /* CuzNavigationBar.swift */; };
@@ -62,7 +61,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50B38DA71DD42D9900D2906A /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,7 +221,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = lyxia;
 				TargetAttributes = {
 					5051FADF1DAB7DBC00376F89 = {
@@ -331,6 +329,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -388,6 +387,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -430,7 +430,11 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/Frameworks",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = ZMusicUIFrame/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -452,7 +456,11 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/Frameworks",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = ZMusicUIFrame/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

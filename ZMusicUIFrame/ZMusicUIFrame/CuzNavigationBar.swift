@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SnapKit
 
 public class CuzNavigationBar: UINavigationBar, UINavigationBarDelegate {
     
@@ -42,11 +41,12 @@ public class CuzNavigationBar: UINavigationBar, UINavigationBarDelegate {
                 bg?.contentMode = .scaleToFill
                 bg?.translatesAutoresizingMaskIntoConstraints = false
                 self.insertSubview(bg!, at: 1)
-                bg?.snp.makeConstraints({ (make) in
-                    make.left.right.equalTo(self)
-                    make.top.equalTo(self).offset(-20)
-                    make.bottom.equalTo(self)
-                })
+                let arr = [
+                    NSLayoutConstraint(item: bg!, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: -20),
+                    NSLayoutConstraint(item: bg!, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1, constant: 0),
+                    NSLayoutConstraint(item: bg!, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0),
+                    NSLayoutConstraint(item: bg!, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1, constant: 0)]
+                self.addConstraints(arr);
             }
         } else {
             bg?.removeFromSuperview()

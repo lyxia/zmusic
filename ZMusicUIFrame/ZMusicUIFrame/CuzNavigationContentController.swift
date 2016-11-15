@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SnapKit
 
 open class CuzNavigationContentController: UIViewController {
     
@@ -46,11 +45,11 @@ open class CuzNavigationContentController: UIViewController {
     private func layoutBar() {
         if let bar = cuzNavigationBar {
             self.view.addSubview(bar)
-            
-            bar.snp.makeConstraints({ (make) in
-                make.left.right.equalTo(self.view)
-                make.top.equalTo((self.navigationController?.topLayoutGuide.length) ?? self.view)
-            })
+            let arr = [
+                NSLayoutConstraint(item: bar, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: (self.navigationController?.topLayoutGuide.length) ?? 0),
+                NSLayoutConstraint(item: bar, attribute: .left, relatedBy: .equal, toItem: self.view, attribute: .left, multiplier: 1, constant: 0),
+                NSLayoutConstraint(item: bar, attribute: .right, relatedBy: .equal, toItem: self.view, attribute: .right, multiplier: 1, constant: 0)]
+            self.view.addConstraints(arr);
         }
     }
 }

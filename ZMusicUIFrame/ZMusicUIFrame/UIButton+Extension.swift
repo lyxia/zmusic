@@ -24,7 +24,7 @@ public extension UIButton {
                 case .ImageUpTitle:
                     let imageSize = imageView.bounds.size
                     var titleSize = title.bounds.size
-                    let textSize = (title.text! as! NSString).size(attributes: [NSFontAttributeName : title.font])
+                    let textSize = (title.text! as NSString).size(attributes: [NSFontAttributeName : title.font])
                     let textFrameSize = CGSize(width: ceil(textSize.width), height: ceil(textSize.height))
                     if titleSize.width + 0.5 < textFrameSize.width {
                         titleSize.width = textFrameSize.width
